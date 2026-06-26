@@ -19,9 +19,9 @@ export function UserCard({ user }: Props) {
         {user.bio && <p className="text-xs text-gray-400 mt-1 truncate">{user.bio}</p>}
       </div>
       <div className="hidden sm:flex gap-4 text-center">
-        <Stat icon={<BookOpen className="w-4 h-4" />} value={user.public_repos} label="Repos" />
-        <Stat icon={<Users className="w-4 h-4" />} value={user.followers} label="Followers" />
-        <Stat icon={<UserCheck className="w-4 h-4" />} value={user.following} label="Following" />
+        <Stat icon={<BookOpen className="w-4 h-4" />} value={user.public_repos} label="リポジトリ" />
+        <Stat icon={<Users className="w-4 h-4" />} value={user.followers} label="フォロワー" />
+        <Stat icon={<UserCheck className="w-4 h-4" />} value={user.following} label="フォロー中" />
       </div>
     </div>
   );

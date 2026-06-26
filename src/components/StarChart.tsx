@@ -42,7 +42,7 @@ export function StarChart({ repos }: Props) {
           />
           <Tooltip
             contentStyle={{ background: "#1f2937", border: "1px solid #374151", borderRadius: "8px" }}
-            formatter={(v) => [typeof v === "number" ? v.toLocaleString() : v, "Stars"]}
+            formatter={(v) => [typeof v === "number" ? v.toLocaleString() : v, "スター数"]}
             cursor={{ fill: "rgba(255,255,255,0.04)" }}
           />
           <Bar dataKey="stargazers_count" radius={[0, 4, 4, 0]} animationDuration={800}>

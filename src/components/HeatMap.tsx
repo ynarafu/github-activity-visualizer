@@ -1,5 +1,6 @@
 import type { ContributionDay } from "../types/github";
 import { format, parseISO, getDay } from "date-fns";
+import { ja } from "date-fns/locale";
 
 interface Props {
   contributions: ContributionDay[];
@@ -13,7 +14,7 @@ const LEVEL_COLORS = [
   "bg-teal-300",
 ];
 
-const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DAYS = ["日", "月", "火", "水", "木", "金", "土"];
 
 export function HeatMap({ contributions }: Props) {
   // 最初のdayの曜日に合わせてpadding
@@ -33,7 +34,7 @@ export function HeatMap({ contributions }: Props) {
     <div className="p-4 bg-gray-800/60 border border-gray-700/50 rounded-2xl">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-gray-300">コントリビューション (過去1年)</h3>
-        <span className="text-xs text-teal-400 font-medium">{totalContribs.toLocaleString()} contributions</span>
+        <span className="text-xs text-teal-400 font-medium">{totalContribs.toLocaleString()} コントリビューション</span>
       </div>
 
       <div className="overflow-x-auto">
@@ -57,7 +58,7 @@ export function HeatMap({ contributions }: Props) {
               wi > 0 &&
               week[0] &&
               format(parseISO(week[0].date), "MM") !== format(parseISO(weeks[wi - 1].find(Boolean)!.date), "MM")
-                ? format(parseISO(week[0].date), "MMM")
+                ? format(parseISO(week[0].date), "M月", { locale: ja })
                 : "";
 
             return (
@@ -69,7 +70,7 @@ export function HeatMap({ contributions }: Props) {
                   day ? (
                     <div
                       key={di}
-                      title={`${day.date}: ${day.count} contributions`}
+                      title={`${day.date}: ${day.count} コントリビューション`}
                       className={`w-3 h-3 rounded-sm ${LEVEL_COLORS[day.level]} cursor-pointer hover:ring-1 hover:ring-teal-300 transition-all`}
                     />
                   ) : (

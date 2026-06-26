@@ -48,7 +48,7 @@ export default function App() {
             <ActivityChart data={data.activityByMonth} />
 
             <p className="text-center text-gray-700 text-xs mt-2">
-              Data from GitHub Public API · Updates cached for 5 min
+              GitHub Public API 使用 · 結果は5分間キャッシュされます
             </p>
           </div>
         )}
